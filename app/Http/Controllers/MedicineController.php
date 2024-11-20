@@ -94,7 +94,6 @@ class MedicineController extends Controller
     {
         
         Medicine::where('id',$id)->delete();
-
         return redirect()->back()->with('deleted','berhasil menghapus data!');
 
     }

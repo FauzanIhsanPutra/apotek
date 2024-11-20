@@ -9,7 +9,7 @@
                 <div class="alert alert-success"> {{Session::get('success') }}</div>
             @endif
             @if($errors->any())
-                <ul class="alert alert-danger">
+                <ul class="axlert alert-danger">
                     @foreach ($errors->all() as $error)
                         <li>{{ $error }}</li>
                     @endforeach

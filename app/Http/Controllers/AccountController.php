@@ -11,6 +11,7 @@ use Illuminate\Support\Facades\Auth;
 
 class AccountController extends Controller
 {
+
     public function login(){
 
         return view('login');
@@ -39,7 +40,7 @@ class AccountController extends Controller
     public function logout() 
     {
         Auth::logout();
-        return redirect()->back()->with('logout', 'logout berhasil, silahkan datang kembali :D');
+        return redirect()->route('login')->with('logout', 'logout berhasil, silahkan datang kembali :D');
     }
 
     public function index()
@@ -89,7 +90,7 @@ class AccountController extends Controller
         $request->validate([
             'name' => 'required|string|max:255',
             'email' => 'required|string|email|max:255|unique:users,email,'.$id,
-            'role' => 'required|string|in:admin,user',
+            'role' => 'required|string|in:admin,user,kasir',
             'password' => '',
         ]);
 

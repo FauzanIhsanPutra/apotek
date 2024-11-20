@@ -9,7 +9,9 @@
 
     <form action="{{ route('user.store') }}" method="POST" class="card p-5">
         @csrf
-
+        @if (Session::get('failed'))
+                <div class="alert alert-danger">{{ Session::get('failed') }}</div>
+    @endif
         @if ($errors->any())
             <ul class="alert alert-danger p-3">
                 @foreach($errors->all() as $error)
@@ -43,6 +45,7 @@
                     <option class="placeholder-option" selected disabled hidden>Pilih Role Anda</option>
                     <option value="admin" {{ old('role') == 'admin' ? 'selected' : '' }}>Admin</option>
                     <option value="user" {{ old('role') == 'user' ? 'selected' : '' }}>User</option>
+                    <option value="user" {{ old('role') == 'kasir' ? 'selected' : '' }}>kasir</option>
                     <!-- Add other roles as needed -->
                 </select>
             </div>

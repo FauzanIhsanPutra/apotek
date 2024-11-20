@@ -12,11 +12,16 @@ class Order extends Model
     protected $fillable = [
         'user_id',
         'medicines',
-        'name_customer',
+        'name_customer', // Corrected the typo here
         'total_price',
     ];
 
     protected $casts = [
-        'medicines' => 'array',
+        'medicines' => 'array', // Auto-cast JSON ke array
     ];
+
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
 }
